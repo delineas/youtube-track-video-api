@@ -12,12 +12,10 @@
 */
 
 
-$app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
+$app->router->group(['prefix' => 'api/v1'], function($app)
 {
-	$app->post('video','VideoTrackerController@createVideoTracker');
- 
-	$app->put('video/{video_id}','VideoTrackerController@updateVideoTracker');
- 	 
+	$app->post('video','VideoTrackerController@updateOrCreateVideoTracker');
+  	 
 	$app->delete('video/{video_id}','VideoTrackerController@deleteVideoTracker');
  
 	$app->get('video/{video_id}','VideoTrackerController@showVideoTracker');
